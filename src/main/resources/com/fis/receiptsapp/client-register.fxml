@@ -46,7 +46,7 @@
             <TextField fx:id="tf_first_name" layoutX="278.0" layoutY="135.0" />
             <TextField fx:id="tf_last_name" layoutX="278.0" layoutY="184.0" />
             <TextField fx:id="tf_telephone_number" layoutX="278.0" layoutY="233.0" />
-            <Button fx:id="button_login" alignment="CENTER" layoutX="181.0" layoutY="294.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" style="-fx-background-color: orange; -fx-cursor: hand;" text="Register" textFill="WHITE">
+            <Button fx:id="button_register" alignment="CENTER" layoutX="181.0" layoutY="294.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" style="-fx-background-color: orange; -fx-cursor: hand;" text="Register" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="16.0" />
                </font>
