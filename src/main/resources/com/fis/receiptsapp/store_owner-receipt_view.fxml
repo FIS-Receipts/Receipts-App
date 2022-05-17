@@ -24,10 +24,10 @@
          <children>
             <TableView layoutX="30.0" layoutY="65.0" prefHeight="371.0" prefWidth="440.0">
               <columns>
-                <TableColumn fx:id="col_noitems" prefWidth="70.0" text="No. items" />
+                <TableColumn fx:id="col_receipt_id" prefWidth="70.0" text="Receipt ID" />
                 <TableColumn fx:id="col_date" prefWidth="150.0" text="Date" />
                   <TableColumn fx:id="col_customer" prefWidth="150.0" text="Customer" />
-                  <TableColumn fx:id="col_price" prefWidth="70.0" text="Price" />
+                  <TableColumn fx:id="col_amount" prefWidth="70.0" text="Amount" />
               </columns>
             </TableView>
             <Label layoutX="30.0" layoutY="25.0" text="Search receipt">
