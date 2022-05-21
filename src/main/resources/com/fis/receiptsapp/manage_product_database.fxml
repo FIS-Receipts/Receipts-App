@@ -31,8 +31,7 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <TextField fx:id="tf_product_id" layoutX="70.0" layoutY="40.0" prefHeight="25.0" prefWidth="100.0" promptText="Product ID..." />
-                <TextField fx:id="tf_product_name" layoutX="185.0" layoutY="40.0" prefHeight="25.0" prefWidth="100.0" promptText="Name..." />
+                <TextField fx:id="tf_product_name" layoutX="70.0" layoutY="40.0" prefHeight="25.0" prefWidth="125.0" promptText="Name..." />
                 <Button fx:id="button_remove" layoutX="250.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-cursor: hand;" text="Remove" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
@@ -43,9 +42,9 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <TextField fx:id="tf_brand" layoutX="300.0" layoutY="40.0" prefHeight="25.0" prefWidth="100.0" promptText="Brand..." />
-                <TextField fx:id="tf_quota" layoutX="415.0" layoutY="40.0" prefHeight="25.0" prefWidth="100.0" promptText="Quota..." />
-                <TextField fx:id="tf_price" layoutX="530.0" layoutY="40.0" prefHeight="25.0" prefWidth="100.0" promptText="Price..." />
+                <TextField fx:id="tf_brand" layoutX="215.0" layoutY="40.0" prefHeight="25.0" prefWidth="125.0" promptText="Brand..." />
+                <TextField fx:id="tf_quota" layoutX="360.0" layoutY="40.0" prefHeight="25.0" prefWidth="125.0" promptText="Quota..." />
+                <TextField fx:id="tf_price" layoutX="505.0" layoutY="40.0" prefHeight="25.0" prefWidth="125.0" promptText="Price..." />
             </children>
         </AnchorPane>
     </children>
