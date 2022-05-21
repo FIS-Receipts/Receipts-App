@@ -1,12 +1,10 @@
 package com.fis.receiptsapp.controllers;
 
-import com.fis.receiptsapp.ViewTestApplication;
+import com.fis.receiptsapp.MainApplication;
 import com.fis.receiptsapp.models.Customer;
-import com.fis.receiptsapp.models.StoreOwner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -114,8 +112,7 @@ public class CustomerRegisterController {
     }
 
     public void registerAsStoreOwner(ActionEvent event) throws IOException {
-        // TODO: change ViewTestApplication with main application
-        FXMLLoader loader = new FXMLLoader(ViewTestApplication.class.getResource("store_owner-register.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("store_owner-register.fxml"));
         Parent root = loader.load();
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
