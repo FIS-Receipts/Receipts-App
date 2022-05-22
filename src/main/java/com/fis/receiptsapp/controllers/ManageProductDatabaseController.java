@@ -12,10 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ManageProductDatabaseController extends SceneEssentials implements Initializable {
@@ -123,13 +120,49 @@ public class ManageProductDatabaseController extends SceneEssentials implements 
             cs.executeUpdate();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
 
         // Get products from database after addition
         getProducts();
+
+        // Clear text fields
+        tf_product_name.clear();
+        tf_brand.clear();
+        tf_quota.clear();
+        tf_price.clear();
     }
 
+    public void removeProduct(ActionEvent event) {
+        Product product;
 
+        try {
+            product = (Product) table_products.getSelectionModel().getSelectedItem();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+        Connection connection = DatabaseController.getInstance().getConnection();
+
+        try {
+            Statement st = connection.createStatement();
+            st.executeUpdate("DELETE from products WHERE product_id = " + product.getId());
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+        // Get products from database after addition
+        getProducts();
+
+        // Clear text fields
+        tf_product_name.clear();
+        tf_brand.clear();
+        tf_quota.clear();
+        tf_price.clear();
+    }
 
     // TODO: implement return button to store owner receipt view
 }
