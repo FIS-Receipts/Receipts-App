@@ -36,14 +36,14 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_create_and_send" layoutX="361.0" layoutY="507.0" mnemonicParsing="false" style="-fx-background-color: green; -fx-cursor: hand;" text="Create &amp; send" textFill="WHITE">
+                <Button fx:id="button_create_and_send" layoutX="361.0" layoutY="507.0" mnemonicParsing="false" onAction="#addReceiptToDatabase" style="-fx-background-color: green; -fx-cursor: hand;" text="Create &amp; send" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
                 <TextField fx:id="tf_product_id" layoutX="30.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="Product ID..." />
                 <TextField fx:id="tf_quantity" layoutX="150.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="Quantity..." />
-                <Button fx:id="button_remove" layoutX="346.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-cursor: hand;" text="Remove" textFill="WHITE">
+                <Button fx:id="button_remove" layoutX="346.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeProduct" style="-fx-background-color: red; -fx-cursor: hand;" text="Remove" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
@@ -53,12 +53,12 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <Label fx:id="label_total" alignment="CENTER" layoutX="434.0" layoutY="475.0" prefHeight="16.0" prefWidth="40.0">
+                <Label fx:id="label_total" alignment="CENTER" layoutX="414.0" layoutY="475.0" prefHeight="16.0" prefWidth="60.0">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Label>
-                <Label layoutX="397.0" layoutY="475.0" text="Total:">
+                <Label layoutX="377.0" layoutY="475.0" text="Total:">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
