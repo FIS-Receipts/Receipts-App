@@ -3,10 +3,12 @@ package com.fis.receiptsapp.models;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Receipt {
     private int id;
@@ -36,6 +38,31 @@ public class Receipt {
 
         setNrItems(calculateNrItems());
         setAmount(calculateAmount());
+    }
+
+    public Receipt(ResultSet rs) {
+        try {
+            setId(rs.getInt("id"));
+            setStore_owner_id(rs.getInt("store_owner_id"));
+            setCustomer_id(rs.getInt("customer_id"));
+            JSONObject jo = new JSONObject(rs.getString("details"));
+            setDate(new SimpleDateFormat("dd.MM.yyyy").parse(jo.getString("date")));
+            setCustomerName(jo.getString("customerName"));
+            setStoreName(jo.getString("storeName"));
+            setStoreType(StoreOwner.Store_type.valueOf(jo.getString("storeType")));
+            setNrItems(jo.getInt("nrItems"));
+            setAmount(jo.getFloat("amount"));
+
+            JSONArray jsonArray = jo.getJSONArray("products");
+            List<Product> tmpProducts = new ArrayList<Product>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                tmpProducts.add(new Product((JSONObject) jsonArray.get(i)));
+            }
+            setProducts(tmpProducts);
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     private int calculateNrItems() {
