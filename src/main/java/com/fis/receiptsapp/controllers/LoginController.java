@@ -44,11 +44,10 @@ public class LoginController extends SceneEssentials{
                 account.setAccount_type(Account.Account_type.valueOf(rs.getString("account_type")));
 
                 if (rs.getString("password").equals(account.getPassword())) {
-                    // TODO: set next scene and controller after logging in based on account type
                     if (account.getAccount_type() == Account.Account_type.customer)
-                        changeSceneLogged(event, "customer-receipt_view", new CustomerReceiptViewController(), account);
+                        changeSceneLogged(event, "customer-receipt_view.fxml", new CustomerReceiptViewController(), account);
                     else
-                        changeSceneLogged(event, "store_owner_scene", new LoginController(), account);
+                        changeSceneLogged(event, "store_owner-receipt_view.fxml", new StoreOwnerReceiptViewController(), account);
                 } else {
                     System.out.println("Password is not correct");
                 }
