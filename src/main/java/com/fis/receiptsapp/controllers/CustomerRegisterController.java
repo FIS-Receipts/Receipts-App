@@ -108,7 +108,7 @@ public class CustomerRegisterController extends SceneEssentials{
             System.err.println(e.getMessage());
         }
         try {
-            changeScene(event, "client.fxml");
+            changeScene(event, "login.fxml");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

@@ -1,5 +1,7 @@
 package com.fis.receiptsapp.models;
 
+import java.sql.ResultSet;
+
 public class Account {
     public enum Account_type {
         customer,
@@ -18,6 +20,17 @@ public class Account {
         setUsername(username);
         setPassword(password);
         setAccount_type(account_type);
+    }
+
+    public Account(ResultSet rs) {
+        try {
+            setId(rs.getInt("id"));
+            setUsername(rs.getString("username"));
+            setPassword(rs.getString("password"));
+            setAccount_type(Account_type.valueOf(rs.getString("account_type")));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public void setId(int id) {

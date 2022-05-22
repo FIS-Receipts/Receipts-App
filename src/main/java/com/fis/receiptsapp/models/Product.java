@@ -8,6 +8,7 @@ public class Product {
     private String brand;
     private String quota;
     private float price;
+    private int quantity;
 
     public Product() {}
 
@@ -18,6 +19,16 @@ public class Product {
         setBrand(brand);
         setQuota(quota);
         setPrice(price);
+    }
+
+    public Product(int id, int store_owners_id, String name, String brand, String quota, float price, int quantity) {
+        setId(id);
+        setStore_owners_id(store_owners_id);
+        setName(name);
+        setBrand(brand);
+        setQuota(quota);
+        setPrice(price);
+        setQuantity(quantity);
     }
 
     public int getId() {
@@ -66,5 +77,13 @@ public class Product {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
