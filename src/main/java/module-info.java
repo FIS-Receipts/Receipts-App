@@ -2,6 +2,7 @@ module com.fis.receiptsapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires org.json;
 
 
     opens com.fis.receiptsapp to javafx.fxml;
