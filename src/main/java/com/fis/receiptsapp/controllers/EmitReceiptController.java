@@ -1,6 +1,9 @@
 package com.fis.receiptsapp.controllers;
 
+import com.fis.receiptsapp.models.Customer;
 import com.fis.receiptsapp.models.Product;
+import com.fis.receiptsapp.models.Receipt;
+import com.fis.receiptsapp.models.StoreOwner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,11 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -134,7 +136,61 @@ public class EmitReceiptController extends SceneEssentials implements Initializa
     }
 
     public void addReceiptToDatabase() {
+        int customerId;
 
+        if (tf_customer_id.getText().isEmpty()) return;
+        try {
+            customerId = Integer.parseInt(tf_customer_id.getText());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+
+        Connection connection = DatabaseController.getInstance().getConnection();
+
+
+        // Check if customer id exists in database
+        Customer customer;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM customers WHERE id = " + customerId);
+            if (!rs.next()) return;
+            customer = new Customer(rs);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+
+        // Get store owner details from database
+        StoreOwner storeOwner;
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM store_owners WHERE id = " + getAccount().getId());
+            if (!rs.next()) return;
+            storeOwner = new StoreOwner(rs);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+        Receipt receipt = new Receipt((List<Product>)table_receipt.getItems(), storeOwner, customer);
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO receipts (store_owner_id, customer_id, details) VALUES (?, ?, ?)");
+            ps.setInt(1, storeOwner.getId());
+            ps.setInt(2, customer.getId());
+            ps.setString(3, receipt.getJSONString());
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+
+        tf_customer_id.clear();
+        table_receipt.getItems().clear();
     }
 
 
