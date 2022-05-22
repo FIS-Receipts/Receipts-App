@@ -1,5 +1,7 @@
 package com.fis.receiptsapp.models;
 
+import org.json.JSONObject;
+
 public class Product {
 
     private int id;
@@ -29,6 +31,16 @@ public class Product {
         setQuota(quota);
         setPrice(price);
         setQuantity(quantity);
+    }
+
+    public Product(JSONObject jo) {
+        setId(jo.getInt("id"));
+        setStore_owners_id(jo.getInt("store_owners_id"));
+        setName(jo.getString("name"));
+        setBrand(jo.getString("brand"));
+        setQuota(jo.getString("quota"));
+        setPrice(jo.getFloat("price"));
+        setQuantity(jo.getInt("quantity"));
     }
 
     public int getId() {
