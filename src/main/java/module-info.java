@@ -7,5 +7,6 @@ module com.fis.receiptsapp {
     opens com.fis.receiptsapp to javafx.fxml;
     exports com.fis.receiptsapp;
     exports com.fis.receiptsapp.controllers;
+    exports com.fis.receiptsapp.models;
     opens com.fis.receiptsapp.controllers to javafx.fxml;
 }
