@@ -1,12 +1,10 @@
 package com.fis.receiptsapp.controllers;
 
-import com.fis.receiptsapp.ViewTestApplication;
+import com.fis.receiptsapp.MainApplication;
 import com.fis.receiptsapp.models.Customer;
-import com.fis.receiptsapp.models.StoreOwner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class CustomerRegisterController {
+public class CustomerRegisterController extends SceneEssentials{
 
     private Customer customer;
 
@@ -107,21 +105,18 @@ public class CustomerRegisterController {
                 customer.setId(rs.getInt("id"));
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
+        }
+        try {
+            changeScene(event, "client.fxml");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
 
-        //TODO: change scene to login
     }
 
     public void registerAsStoreOwner(ActionEvent event) throws IOException {
-        // TODO: change ViewTestApplication with main application
-        FXMLLoader loader = new FXMLLoader(ViewTestApplication.class.getResource("store_owner-register.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        changeScene(event, "store_owner-register.fxml");
     }
 
 }

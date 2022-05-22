@@ -1,11 +1,9 @@
 package com.fis.receiptsapp.controllers;
 
-import com.fis.receiptsapp.HelloApplication;
-import com.fis.receiptsapp.ViewTestApplication;
-import com.fis.receiptsapp.models.Account;
+import com.fis.receiptsapp.MainApplication;
 import com.fis.receiptsapp.models.StoreOwner;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,7 +24,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
-public class StoreOwnerRegisterController implements Initializable {
+public class StoreOwnerRegisterController extends SceneEssentials implements Initializable{
 
     private StoreOwner storeOwner;
 
@@ -124,18 +122,15 @@ public class StoreOwnerRegisterController implements Initializable {
             System.out.println(e.getMessage());
         }
 
-        //TODO: change scene to login
+        try {
+            changeScene(event, "login.fxml");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public void registerAsCustomer(ActionEvent event) throws IOException{
-        // TODO: change ViewTestApplication with main application
-        FXMLLoader loader = new FXMLLoader(ViewTestApplication.class.getResource("client-register.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        changeScene(event, "client-register.fxml");
     }
 
 }
