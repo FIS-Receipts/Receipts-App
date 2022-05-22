@@ -100,7 +100,7 @@ public class EmitReceiptController extends SceneEssentials implements Initializa
         // Get product from database if exists
         try {
             Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * from products WHERE product_id = " + product.getId());
+            ResultSet rs = st.executeQuery("SELECT * from products WHERE product_id = " + product.getId() + " AND " + "store_owners_id = " + getAccount().getId());
 
             if (rs.next()) {
                 product.setName(rs.getString("name"));
