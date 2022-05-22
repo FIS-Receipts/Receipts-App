@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -194,5 +195,7 @@ public class EmitReceiptController extends SceneEssentials implements Initializa
     }
 
 
-    // TODO: redirect cancel to store owner receipt view
+    public void cancelToReceiptsView(ActionEvent event) throws IOException {
+        changeSceneLogged(event, "store_owner-receipt_view.fxml", new StoreOwnerReceiptViewController(), getAccount());
+    }
 }

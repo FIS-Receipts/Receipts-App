@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -164,5 +165,7 @@ public class ManageProductDatabaseController extends SceneEssentials implements 
         tf_price.clear();
     }
 
-    // TODO: implement return button to store owner receipt view
+    public void returnToReceiptView(ActionEvent event) throws IOException {
+        changeSceneLogged(event, "store_owner-receipt_view.fxml", new StoreOwnerReceiptViewController(), getAccount());
+    }
 }
