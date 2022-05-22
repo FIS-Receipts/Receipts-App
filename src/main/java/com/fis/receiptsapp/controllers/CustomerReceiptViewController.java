@@ -3,6 +3,8 @@ package com.fis.receiptsapp.controllers;
 import com.fis.receiptsapp.models.Customer;
 import com.fis.receiptsapp.models.Product;
 import com.fis.receiptsapp.models.Receipt;
+import javafx.beans.Observable;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,6 +71,24 @@ public class CustomerReceiptViewController extends SceneEssentials implements In
 
         label_client_name.setText(customer.getFirst_name() + " " + customer.getLast_name());
         label_total.setText(getStringTotalPrice());
+
+        FilteredList<Receipt> filteredData = new FilteredList<Receipt>(table_receipts.getItems(), b -> true);
+        tf_filter.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(productSearchModel -> {
+                if (newValue.isEmpty() || newValue.isBlank() || newValue == null)
+                    return true;
+                String searchKeyword = newValue.toLowerCase();
+
+                if (productSearchModel.getStoreName().toLowerCase().indexOf(searchKeyword) > -1)
+                    return true;
+                else if (String.valueOf(productSearchModel.getStoreType()).toLowerCase().indexOf(searchKeyword) > -1)
+                    return true;
+                else
+                    return false;
+            });
+            label_total.setText(getStringTotalPrice());
+        });
+        table_receipts.setItems(filteredData);
     }
 
     private float getTotalPrice() {
@@ -105,11 +125,6 @@ public class CustomerReceiptViewController extends SceneEssentials implements In
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-
-    }
-
-
-    public void filter() {
 
     }
 
