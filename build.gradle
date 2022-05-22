@@ -13,7 +13,7 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.8.1'
+    junitVersion = '5.8.2'
 }
 
 sourceCompatibility = '17'
@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.fis.receiptsapp'
-    mainClass = 'com.fis.receiptsapp.HelloApplication'
+    mainClass = 'com.fis.receiptsapp.MainApplication'
 }
 
 javafx {
@@ -35,8 +35,14 @@ javafx {
 
 dependencies {
 
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+//    implementation 'com.oracle.database.jdbc:ojdbc8:21.5.0.0'
+//    implementation 'com.oracle.database.jdbc:ucp:21.5.0.0'
+    implementation "mysql:mysql-connector-java:8.0.29"
+    implementation 'org.json:json:20220320'
+
 }
 
 test {
