@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.fis.receiptsapp'
-    mainClass = 'com.fis.receiptsapp.HelloApplication'
+    mainClass = 'com.fis.receiptsapp.MainApplication'
 }
 
 javafx {
@@ -35,8 +35,10 @@ javafx {
 
 dependencies {
 
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation "mysql:mysql-connector-java:8.0.29"
 }
 
 test {
