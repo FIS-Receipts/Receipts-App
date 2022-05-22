@@ -22,7 +22,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="530.0" prefWidth="500.0">
          <children>
-            <TableView layoutX="30.0" layoutY="65.0" prefHeight="371.0" prefWidth="440.0">
+            <TableView fx:id="table_receipts" layoutX="30.0" layoutY="65.0" prefHeight="371.0" prefWidth="440.0">
               <columns>
                 <TableColumn fx:id="col_receipt_id" prefWidth="70.0" text="Receipt ID" />
                 <TableColumn fx:id="col_date" prefWidth="150.0" text="Date" />
@@ -36,17 +36,17 @@
                </font>
             </Label>
             <TextField fx:id="tf_filter" layoutX="149.0" layoutY="21.0" promptText="Keywords..." />
-            <Button fx:id="button_sign_out" layoutX="30.0" layoutY="468.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Sign out" textFill="WHITE">
+            <Button fx:id="button_sign_out" layoutX="30.0" layoutY="468.0" mnemonicParsing="false" onAction="#signOut" style="-fx-background-color: red;" text="Sign out" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="button_new_receipt" layoutX="191.0" layoutY="468.0" mnemonicParsing="false" style="-fx-background-color: blue;" text="New receipt" textFill="WHITE">
+            <Button fx:id="button_new_receipt" layoutX="191.0" layoutY="468.0" mnemonicParsing="false" onAction="#newReceiptScene" style="-fx-background-color: blue;" text="New receipt" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="button_manage_store" layoutX="365.0" layoutY="468.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage store" textFill="WHITE">
+            <Button fx:id="button_manage_store" layoutX="365.0" layoutY="468.0" mnemonicParsing="false" onAction="#manageStoreScene" style="-fx-background-color: orange;" text="Manage store" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
