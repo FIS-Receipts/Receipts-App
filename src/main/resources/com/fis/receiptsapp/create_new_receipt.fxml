@@ -17,11 +17,11 @@
         </AnchorPane>
         <AnchorPane prefHeight="545.0" prefWidth="500.0">
             <children>
-                <TableView layoutX="30.0" layoutY="116.0" prefHeight="350.0" prefWidth="440.0">
+                <TableView fx:id="table_receipt" layoutX="30.0" layoutY="116.0" prefHeight="350.0" prefWidth="440.0">
                     <columns>
                         <TableColumn fx:id="col_product_id" prefWidth="70.0" text="Product ID" />
                         <TableColumn fx:id="col_product_name" prefWidth="150.0" text="Product name" />
-                        <TableColumn fx:id="col_product_band" prefWidth="150.0" text="Product brand" />
+                        <TableColumn fx:id="col_product_brand" prefWidth="150.0" text="Product brand" />
                         <TableColumn fx:id="col_quantity" prefWidth="70.0" text="Quantity" />
                     </columns>
                 </TableView>
@@ -48,7 +48,7 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_add" layoutX="426.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: green; -fx-cursor: hand;" text="Add" textFill="WHITE">
+                <Button fx:id="button_add" layoutX="426.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: green; -fx-cursor: hand;" text="Add" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>

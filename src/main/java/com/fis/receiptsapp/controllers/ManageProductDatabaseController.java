@@ -154,7 +154,7 @@ public class ManageProductDatabaseController extends SceneEssentials implements 
             return;
         }
 
-        // Get products from database after addition
+        // Get products from database after removal
         getProducts();
 
         // Clear text fields
