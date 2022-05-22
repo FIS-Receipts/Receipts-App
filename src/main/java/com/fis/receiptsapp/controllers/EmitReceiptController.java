@@ -12,6 +12,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class EmitReceiptController extends SceneEssentials implements Initializable {
@@ -52,6 +54,23 @@ public class EmitReceiptController extends SceneEssentials implements Initializa
         col_product_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_product_brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         col_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        label_total.setText(getStringTotalPrice());
+    }
+
+    private float getTotalPrice() {
+        float totalPrice = 0;
+
+        List<Product> products = (List<Product>) table_receipt.getItems();
+        for (Product product : products) {
+            totalPrice += product.getPrice() * product.getQuantity();
+        }
+
+        return totalPrice;
+    }
+
+    private String getStringTotalPrice() {
+        return String.format("%.02f", getTotalPrice());
     }
 
     public void addProduct(ActionEvent event) {
@@ -99,7 +118,25 @@ public class EmitReceiptController extends SceneEssentials implements Initializa
         // Clear text fields
         tf_product_id.clear();
         tf_quantity.clear();
+
+        label_total.setText(getStringTotalPrice());
+    }
+
+    public void removeProduct(ActionEvent event) {
+        try {
+            Product product = (Product) table_receipt.getSelectionModel().getSelectedItem();
+            table_receipt.getItems().remove(product);
+            label_total.setText(getStringTotalPrice());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return;
+        }
+    }
+
+    public void addReceiptToDatabase() {
+
     }
 
 
+    // TODO: redirect cancel to store owner receipt view
 }
