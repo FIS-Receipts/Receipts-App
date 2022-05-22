@@ -1,5 +1,7 @@
 package com.fis.receiptsapp.models;
 
+import java.sql.ResultSet;
+
 public class Customer extends Account{
 
     private String first_name;
@@ -13,6 +15,17 @@ public class Customer extends Account{
         setFirst_name(first_name);
         setLast_name(last_name);
         setTelephone(telephone);
+    }
+
+    public Customer(ResultSet rs) {
+        super(rs);
+        try {
+            setFirst_name(rs.getString("first_name"));
+            setLast_name(rs.getString("last_name"));
+            setTelephone(rs.getString("telephone"));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     public String getFirst_name() {

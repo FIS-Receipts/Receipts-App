@@ -1,5 +1,7 @@
 package com.fis.receiptsapp.models;
 
+import java.sql.ResultSet;
+
 public class StoreOwner extends Account{
 
     public enum Store_type {
@@ -20,6 +22,18 @@ public class StoreOwner extends Account{
         setCui(cui);
         setName(name);
         setStore_type(store_type);
+    }
+
+    public StoreOwner(ResultSet rs) {
+        super(rs);
+
+        try {
+            setCui(rs.getString("cui"));
+            setName(rs.getString("name"));
+            setStore_type(Store_type.valueOf(rs.getString("store_type")));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public String getCui() {
