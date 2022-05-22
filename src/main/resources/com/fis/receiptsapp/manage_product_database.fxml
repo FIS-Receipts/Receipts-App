@@ -17,11 +17,11 @@
         </AnchorPane>
         <AnchorPane prefHeight="545.0" prefWidth="500.0">
             <children>
-                <TableView layoutX="70.0" layoutY="125.0" prefHeight="350.0" prefWidth="560.0">
+                <TableView fx:id="table_products" layoutX="70.0" layoutY="125.0" prefHeight="350.0" prefWidth="560.0">
                     <columns>
                         <TableColumn fx:id="col_product_id" prefWidth="80.0" text="Product ID" />
                         <TableColumn fx:id="col_product_name" prefWidth="160.0" text="Product name" />
-                        <TableColumn fx:id="col_product_band" prefWidth="160.0" text="Product brand" />
+                        <TableColumn fx:id="col_product_brand" prefWidth="160.0" text="Product brand" />
                         <TableColumn fx:id="col_quota" prefWidth="80.0" text="Quota" />
                         <TableColumn fx:id="col_price" prefWidth="80.0" text="Price" />
                     </columns>
@@ -37,7 +37,7 @@
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_add" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: green; -fx-cursor: hand;" text="Add" textFill="WHITE">
+                <Button fx:id="button_add" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProduct" style="-fx-background-color: green; -fx-cursor: hand;" text="Add" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
