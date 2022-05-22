@@ -22,7 +22,7 @@
         </AnchorPane>
         <AnchorPane prefHeight="530.0" prefWidth="500.0">
             <children>
-                <TableView layoutX="30.0" layoutY="65.0" prefHeight="371.0" prefWidth="440.0">
+                <TableView fx:id="table_receipts" layoutX="30.0" layoutY="65.0" prefHeight="371.0" prefWidth="440.0">
                     <columns>
                         <TableColumn fx:id="col_number_of_items" prefWidth="70.0" text="No. items" />
                         <TableColumn fx:id="col_date" prefWidth="100.0" text="Date" />
@@ -37,17 +37,17 @@
                     </font>
                 </Label>
                 <TextField fx:id="tf_filter" layoutX="149.0" layoutY="21.0" promptText="Keywords..." />
-                <Button fx:id="button_sign_out" layoutX="30.0" layoutY="468.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-cursor: hand;" text="Sign out" textFill="WHITE">
+                <Button fx:id="button_sign_out" layoutX="30.0" layoutY="468.0" mnemonicParsing="false" onAction="#signOut" style="-fx-background-color: red; -fx-cursor: hand;" text="Sign out" textFill="WHITE">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="13.0" />
                     </font>
                 </Button>
-            <Label layoutX="392.0" layoutY="472.0" text="Total:">
+            <Label layoutX="370.0" layoutY="472.0" text="Total:">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="label_total" alignment="CENTER" layoutX="430.0" layoutY="472.0" prefHeight="16.0" prefWidth="40.0" style="-fx-background-color: lightgray;">
+            <Label fx:id="label_total" alignment="CENTER" layoutX="410.0" layoutY="472.0" prefHeight="16.0" prefWidth="60.0" style="-fx-background-color: lightgray;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
