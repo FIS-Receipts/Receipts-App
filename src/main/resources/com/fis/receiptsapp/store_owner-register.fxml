@@ -61,6 +61,11 @@
                </font>
             </Label>
             <TextField fx:id="tf_store_name" layoutX="278.0" layoutY="135.0" />
+            <Label fx:id="label_error" alignment="CENTER" layoutX="172.0" layoutY="267.0" prefHeight="16.0" prefWidth="179.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+            </Label>
             </children></AnchorPane>
     </children>
 </VBox>

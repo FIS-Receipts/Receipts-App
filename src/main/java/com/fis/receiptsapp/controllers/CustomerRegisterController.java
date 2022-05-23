@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -37,6 +38,9 @@ public class CustomerRegisterController extends SceneEssentials{
     private Button button_register;
     @FXML
     private Button button_sign_up_as_so;
+
+    @FXML
+    private Label label_error;
 
     public Customer getCustomer() {
         return customer;
@@ -73,11 +77,13 @@ public class CustomerRegisterController extends SceneEssentials{
             ResultSet rs = ps.executeQuery();
 
             if ( rs.next() ) {
-                System.out.println("Account with username " + customer.getUsername() + " already exists");
+                System.out.println(customer.getUsername() + " already exists");
+                label_error.setText(customer.getUsername() + " already exists");
                 return;
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
 
         // Inserting account into database
@@ -93,6 +99,7 @@ public class CustomerRegisterController extends SceneEssentials{
             cs.executeUpdate();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
 
         // Setting the id of the customer object
@@ -106,6 +113,7 @@ public class CustomerRegisterController extends SceneEssentials{
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
         try {
             changeScene(event, "login.fxml");
