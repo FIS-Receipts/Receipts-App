@@ -4,6 +4,7 @@ import com.fis.receiptsapp.models.Account;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -16,6 +17,9 @@ public class LoginController extends SceneEssentials{
     private TextField tf_username;
     @FXML
     private TextField tf_password;
+
+    @FXML
+    private Label label_error;
 
     @FXML
     private Button bt_login;
@@ -50,10 +54,12 @@ public class LoginController extends SceneEssentials{
                         changeSceneLogged(event, "store_owner-receipt_view.fxml", new StoreOwnerReceiptViewController(), account);
                 } else {
                     System.out.println("Password is not correct");
+                    label_error.setText("Password is not correct");
                 }
 
             } else {
-                System.out.println("Account with username " + account.getUsername() + " doesn't exists");
+                System.out.println(account.getUsername() + " doesn't exists");
+                label_error.setText(account.getUsername() + " doesn't exists");
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
