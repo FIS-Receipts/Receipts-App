@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -44,6 +45,9 @@ public class StoreOwnerRegisterController extends SceneEssentials implements Ini
     private Button button_register;
     @FXML
     private Button button_sign_up_as_cl;
+
+    @FXML
+    private Label label_error;
 
     private final String[] store_types = {"food", "clothes", "gas", "other"};
 
@@ -87,11 +91,13 @@ public class StoreOwnerRegisterController extends SceneEssentials implements Ini
             ResultSet rs = ps.executeQuery();
 
             if ( rs.next() ) {
-                System.out.println("Account with username " + storeOwner.getUsername() + " already exists");
+                System.out.println(storeOwner.getUsername() + " already exists");
+                label_error.setText(storeOwner.getUsername() + " already exists");
                 return;
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
 
         // Inserting account into database
@@ -107,6 +113,7 @@ public class StoreOwnerRegisterController extends SceneEssentials implements Ini
             cs.executeUpdate();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            return;
         }
 
         // Setting the id of the storeOwner object
