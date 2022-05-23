@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact name="ReceiptsApp.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ReceiptsApp_main_jar</output-path>
+    <root id="root">
+      <element id="archive" name="ReceiptsApp.main.jar">
+        <element id="module-output" name="ReceiptsApp.main" />
+      </element>
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:win:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.2" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:win:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-params:5.8.2" />
+      <element id="library" level="project" name="Gradle: com.google.protobuf:protobuf-java:3.19.4" />
+      <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:8.0.29" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.8.2" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-commons:1.8.2" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-fxml:win:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-engine:1.8.2" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter:5.8.2" />
+      <element id="library" level="project" name="Gradle: org.json:json:20220320" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:win:18-ea+6" />
+      <element id="library" level="project" name="Gradle: org.opentest4j:opentest4j:1.2.0" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:18-ea+6" />
+    </root>
+  </artifact>
+</component>
