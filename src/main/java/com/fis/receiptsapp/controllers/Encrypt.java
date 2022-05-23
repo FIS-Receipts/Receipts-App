@@ -17,7 +17,6 @@ public class Encrypt {
         return hexString.toString();
     }
 
-    // TODO: create unittest for sha256
     public static String sha256(String message) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
