@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: com.fis.receiptsapp.MainApplication
+Class-Path: javafx-graphics-18-ea+6-win.jar junit-jupiter-api-5.8.2.jar 
+ javafx-base-18-ea+6-win.jar junit-jupiter-params-5.8.2.jar protobuf-jav
+ a-3.19.4.jar mysql-connector-java-8.0.29.jar javafx-graphics-18-ea+6.ja
+ r junit-jupiter-engine-5.8.2.jar junit-platform-commons-1.8.2.jar javaf
+ x-controls-18-ea+6.jar javafx-fxml-18-ea+6-win.jar junit-platform-engin
+ e-1.8.2.jar junit-jupiter-5.8.2.jar json-20220320.jar javafx-controls-1
+ 8-ea+6-win.jar opentest4j-1.2.0.jar javafx-base-18-ea+6.jar
+
