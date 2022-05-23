@@ -8,7 +8,7 @@
    <children>
       <AnchorPane prefHeight="82.0" prefWidth="523.0" style="-fx-background-color: lightgray;">
          <children>
-            <Label alignment="CENTER" layoutX="134.0" layoutY="17.0" prefHeight="43.0" prefWidth="255.0" style="-fx-background-color: blue;" text="Register as client" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="122.0" layoutY="19.0" prefHeight="43.0" prefWidth="279.0" style="-fx-background-color: blue;" text="Register as customer" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="26.0" />
                </font>
